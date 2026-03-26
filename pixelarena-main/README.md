@@ -43,8 +43,13 @@ Seul le bouton "JOIN" du Lobby devrait devenir vert.
 Apres avoir fait la modification, repondez a ces questions :
 
 1. Le bouton "JOIN" est-il devenu vert ?
+   **Non, il est bleu.** Le CSS de Leaderboard.css charge en dernier et écrase tous les autres `.button`.
+
 2. Les autres boutons ont-ils change de couleur aussi ?
+   **Oui, TOUS les boutons de l'app sont bleus** (Navbar, Lobby, Leaderboard).
+
 3. Si oui, pourquoi selon vous ?
+   **Cascade CSS + Architecture Monolithe.** Les trois équipes ont défini `.button` de manière identique. En CSS global, c'est le dernier fichier chargé qui gagne. Leaderboard.css charge en dernier → tous les `.button` prennent son style. Pas d'isolation = une équipe peut casser le design d'une autre par accident.
 
 ---
 
